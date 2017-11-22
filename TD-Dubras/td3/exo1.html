@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style2">
+    <style>
+        #draggable { width: 150px; height: 150px; padding: 0.5em; }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#draggable" ).draggable({
+                containment: "parent",
+
+                    drag: function( event, ui ) {
+                        $('#coo').empty();
+                        $('#coo').append("y= "+ui.position.top+" ");
+                        $('#coo').append("x= "+ui.position.left);
+
+                        var posx = ui.position.left;
+                        var posy = ui.position.top;
+
+                    if(posx >340 && posx<400){
+                        $(this).draggable( "option", "axis", "y" );
+                        if(posy < 300){
+                            $(this).draggable( "option", "axis", "xy" );
+                        }
+                    }else{
+                        $(this).draggable( "option", "axis", "xy" );
+                    }
+
+                    }
+            }
+            );
+        } );
+    </script>
+</head>
+<body>
+
+<div id="" class="container">
+    <div id="draggable" class="container-draggable">
+        <img src="Small-mario.png" width="15%">
+    </div>
+</div>
+<div>
+    <p id="coo"></p>
+</div>
+
+
+
+</body>
+</html>

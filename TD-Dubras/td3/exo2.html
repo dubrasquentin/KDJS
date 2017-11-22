@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        (function($){
+            $.fn.grossir = function(){
+                this.each(function(){
+                    $(this).hover(function(){
+                            $(this).css("font-size","200%")
+                        },
+                        function(){
+                            $(this).css("font-size","100%")
+                        })
+                });
+
+                return this;
+            };
+        })(jQuery);
+        $(document).ready(function(){
+
+            $('#test').grossir();
+
+        })
+    </script>
+</head>
+<body>
+<span id="test"> abcdefghijklmnopqrstuvwxyz </span>
+</body>
+</html>

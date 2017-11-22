@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style">
+    <style>
+        #draggable { width: 150px; height: 150px; padding: 0.5em; }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#sortable" ).sortable();
+            $( "#sortable" ).disableSelection();
+            $("#btn").click(function(){
+                $('#li').empty();
+                $( "li" ).each(function( liste ) {
+                    $('#lis').append( liste + ": " + $( this ).text()+"  " );
+                });
+            })
+        } );
+    </script>
+</head>
+<body>
+
+
+<div>
+    <ul id="sortable">
+        <li id="1"><span class=""></span>A</li>
+        <li id="2"><span class=""></span>B</li>
+        <li id="3"><span class=""></span>C</li>
+        <li id="4"><span class=""></span>D</li>
+    </ul>
+</div>
+<div>
+    <button id="btn" type="button">Liste</button>
+</div>
+<div>
+    <p id="lis"></p>
+</div>
+
+
+</body>
+</html>

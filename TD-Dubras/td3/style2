@@ -1,0 +1,16 @@
+.container{
+  background-image: url(fond.jpg);
+  border-style: solid;
+  border-width: 5px;
+  width:1200PX;
+  height: 650px;
+}
+.test{
+  background-color: #003eff;
+}
+.container-perso{
+  float: right;
+}
+.container-maison{
+  width: 500px;
+}

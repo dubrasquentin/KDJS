@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Kit de Survie JS</title>
+    <meta name="description" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <style>
+        body{ font-family: 'Quicksand', sans-serif; }
+
+
+    </style>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#ajout1').click(function () {
+                $('#contenu').append('chargement...')
+                $('#contenu').load('http://www.labri.fr/perso/pbiasutt/KDJS/TD02/exo1.php #conteneur1');
+            })
+            $('#ajout2').click(function () {
+                $('#contenu').append('chargement...')
+                $('#contenu').load('http://www.labri.fr/perso/pbiasutt/KDJS/TD02/exo1.php #conteneur2');
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+<input  type="button" id="ajout1" value="Ajout 1"/>
+<input  type="button" id="ajout2" value="Ajout 2"/>
+<div id="contenu">
+
+</div>
+<!-- Code HTML -->
+</body>
+
+</html>

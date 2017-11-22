@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Droppable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style">
+    <style>
+        #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+        #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        var compteur = 0;
+        var compteur2 = 0;
+        $( function() {
+            $( ".draggable1" ).draggable({
+                drag:function(event,ui){
+                    $(".draggable2").removeClass('lannister');
+                    $(this)
+                    .addClass('stark')
+                }
+            });
+            $( "#droppable1" ).droppable({
+                drop: function( event, ui ) {
+                    if($( ".draggable1" ).hasClass("stark")){
+                        compteur += 1;
+                        $(".draggable1").removeClass('stark');
+                        if(compteur == 2){
+                        $( this )
+                            .addClass("test")
+                        }
+                    }
+
+
+                }
+            });
+            $( ".draggable2" ).draggable({
+                drag:function(event,ui){
+                    $(".draggable1").removeClass('stark');
+                    $(this)
+                        .addClass('lannister')
+                }
+            });
+            $( "#droppable2" ).droppable({
+                drop: function( event, ui ) {
+                    if($( ".draggable2" ).hasClass("lannister")){
+                        compteur2 += 1;
+                        $(".draggable2").removeClass('lannister');
+                        if(compteur2 == 2) {
+                            $(this)
+                                .addClass("test")
+                        }
+                    }
+
+                }
+            });
+        } );
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="container-perso">
+            <span class="draggable1" class="ui-widget-content">
+                <img  src="perso\Stark\Robb-Stark.png">
+            </span>
+            <span class="draggable1" class="ui-widget-content">
+                <img  src="perso\Stark\Bran-Stark.png">
+            </span>
+            <span class="draggable2" class="ui-widget-content">
+                <img src="perso\Lannister\Tywin-Lannister.png">
+            </span>
+            <span class="draggable2" class="ui-widget-content">
+                <img src="perso\Lannister\Jaime-Lannister.png">
+            </span>
+        </div>
+        <div class="container-maison">
+            <div id="droppable1" class="ui-widget-header">
+                <img src="perso\Logo-M\Logo-Stark.png" width="60%">
+            </div>
+
+            <div id="droppable2" class="ui-widget-header">
+                <img src="perso\Logo-M\logoLannister.png" width="60%">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
